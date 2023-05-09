@@ -4,7 +4,8 @@
 #' @param base_weight
 #' @return list with weights and coefficients
 #' @export
-ebal_torch = function(X0, X1, base_weight, maxit = 200) {
+ebal_torch = function(X0, X1, base_weight = NULL, maxit = 200) {
+	if(is.null(base_weight)) base_weight = rep(1, nrow(X0))
   inp = list(x0 = torch_tensor(X0), x1 = torch_tensor(X1), q = torch_tensor(base_weight))
   # loss fn returns tensor
   ebal_loss_torch = function(lambda) {
