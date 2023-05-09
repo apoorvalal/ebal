@@ -1,0 +1,7 @@
+importFrom("stats", "optimize", "var")
+importFrom("methods", "is")
+export(eb,ebalance,ebalance.trim,baltest.collect,getsquares,line.searcher,matrixmaker, ebal_torch)
+
+
+
+
