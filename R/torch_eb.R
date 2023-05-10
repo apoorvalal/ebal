@@ -5,7 +5,7 @@
 #' @return list with weights and coefficients
 #' @export
 ebal_torch = function(X0, X1, base_weight = NULL, maxit = 200) {
-	if(is.null(base_weight)) base_weight = rep(1, nrow(X0))
+  if (is.null(base_weight)) base_weight = rep(1, nrow(X0))
   inp = list(x0 = torch_tensor(X0), x1 = torch_tensor(X1), q = torch_tensor(base_weight))
   # loss fn returns tensor
   ebal_loss_torch = function(lambda) {
@@ -28,7 +28,7 @@ ebal_torch = function(X0, X1, base_weight = NULL, maxit = 200) {
   )$par
   # extract weights from lagrangian
   wts = exp(-1 * as.matrix(inp$x0) %*% coefs)
-	wts = wts / sum(wts) # normalise
+  wts = wts / sum(wts) # normalise
   # return
   return(
     list(

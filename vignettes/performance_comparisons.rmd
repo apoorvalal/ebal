@@ -44,6 +44,8 @@ trial_fn = function(k) {
     new_time = round(unname(new_time),3)
   )
 }
+
+trial_fn(1e2)
 ```
 
 Summarize for growing problem size.
