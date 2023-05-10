@@ -62,7 +62,7 @@ ebalance.trim = function(ebalanceobj,
       if (print.level >= 0) {
         cat("Trim iteration", format(iter.max.weight, digits = 3), "Max Weight Ratio:", format(weights.ratio.old, digits = 4), "\n")
       }
-      suppressWarnings(IsError = try(
+      IsError = try(
         {
           for (iter.trim in 1:max.trim.iterations) {
             eb.out = eb(
@@ -81,9 +81,8 @@ ebalance.trim = function(ebalanceobj,
             if (min.weight) w.trimming = w.trimming *
               ifelse(weights.ratio < min.weight, w.trimming * ((min.weight * min.weight.increment) / weights.ratio), 1)
           }
-        },
-        silent = TRUE
-      )) # end try call
+        }, silent = TRUE
+      ) # end try call
 
       if (is(IsError, "try-error")) {
         if (print.level >= 2) {
