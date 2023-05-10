@@ -65,3 +65,17 @@ Reweighting may be useful in a wide variety of settings (e.g. survey reweighting
 
 In such cases, you may use `eb` or `ebal_torch` functions directly, where you supply a donor matrix `X0`, a target moment vector `X1`, and optionally supply base weights.
 
+For example, if we only had control group averages in the above problem, we could solve for weights like so:
+
+```r
+# target summary - this could come from a census
+X1 = colMeans(lalonde.psid[lalonde.psid$treat == 1, xn])
+# source matrix
+X0 = lalonde.psid[lalonde.psid$treat == 0, xn] %>% as.matrix()
+# weights that set weighted mean of X0 to X1
+w = ebal_torch(X0, X1)$Weights.ebal
+
+# same as above
+with(lalonde.psid, mean(re78[treat == 1]) - weighted.mean(re78[treat == 0], w))
+# 2422.7965
+```
