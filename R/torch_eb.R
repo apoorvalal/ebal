@@ -1,8 +1,9 @@
 #' ebal implementation with autodiff via torch
 #' @param X0 donor units matrix
 #' @param X1 target moments
-#' @param base_weight
+#' @param base_weight base weight vector
 #' @return list with weights and coefficients
+#' @import torch
 #' @export
 ebal_torch = function(X0, X1, base_weight = NULL, maxit = 200) {
   if (is.null(base_weight)) base_weight = rep(1, nrow(X0))

@@ -15,3 +15,4 @@ Depends:
 	methods,
 	torch
 NeedsCompilation: no
+RoxygenNote: 7.2.3

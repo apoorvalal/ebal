@@ -1,3 +1,11 @@
+# %% ####################################################
+#' Collect Covariate Balance Statistics
+#' @description A function that summarizes the covariate balance statistics that are computed by MatchBalance(Matching) in a balance table.
+#' @param matchbal An object from a call to MatchBalance(Matching)
+#' @param var.names A vector of covariate names
+#' @param after A logical flag for whether the results from before or after Matching should be summarized. If TRUE baltest.collect summarizes the results from the covariate balance checks that MatchBalance computes in the matched data. If FALSE the results from the balance checks in the unmatched data are used.
+#' @return vector of treatment effects
+#' @export
 baltest.collect = function(matchbal.out, var.names, after = TRUE) {
   storemat = matrix(NA, length(var.names), 10)
   colnames(storemat) = c("mean.Tr", "mean.Co", "sdiff", "sdiff.pooled", "var.ratio", "T pval", "KS pval", "qqmeandiff", "qqmeddiff", "qqmaxdiff")

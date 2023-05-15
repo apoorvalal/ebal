@@ -1,3 +1,13 @@
+# %% ####################################################
+#' internal function to compute entropy balancing weights
+#' @param tr.total treatment moments
+#' @param co.x covariate matrix
+#' @param coefs starting coefs
+#' @param base.weight base weight
+#' @param max.iterations max number of iterations
+#' @param constraint.tolerance tolerance for constraint
+#' @param print.level print level for debugging
+#' @return list with results
 eb = function(tr.total = tr.total,
                co.x = co.x,
                coefs = coefs,
@@ -53,4 +63,19 @@ eb = function(tr.total = tr.total,
       converged = converged
     )
   )
+}
+
+# function to conduct line search for optimal step length
+line.searcher = function(Base.weight,
+                          Co.x,
+                          Tr.total,
+                          coefs,
+                          Newton,
+                          ss) {
+  weights.temp = c(exp(Co.x %*% (coefs - (ss * Newton))))
+  # weights.temp[is.infinite(weights.temp)] = 100
+  weights.temp = weights.temp * Base.weight
+  Co.x.agg = c(weights.temp %*% Co.x)
+  maxdiff = max(abs(Co.x.agg - Tr.total))
+  return(maxdiff)
 }
