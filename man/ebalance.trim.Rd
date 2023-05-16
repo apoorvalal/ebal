@@ -31,16 +31,16 @@ ebalance.trim(
 }
 \value{
 A list object of class ebalance.trim with the following elements:
-\item{target.margins}A vector that contains the target moments coded from the covariate distributions of the treatment group.
-\item{co.xdata}A matrix that contains the covariate data from the control group.
-\item{w}A vector that contains the control group weights assigned by trimming entropy balancing algorithm.
-\item{coefs}A vector that contains coefficients from the reweighting algorithm.
-\item{maxdiff}A scalar that contains the maximum deviation between the moments of the reweighted data and the target moments.
-\item{norm.constant}Normalizing constant used.
-\item{constraint.tolerance}The tolerance level used for the balance constraints.
-\item{max.iterations}Maximum number of trimming iterations used.
-\item{base.weight}The base weight used.
-\item{converged}Logical flag if algorithm converged within tolerance.
+\item{target.margins}{A vector that contains the target moments coded from the covariate distributions of the treatment group.}
+\item{co.xdata}{A matrix that contains the covariate data from the control group.}
+\item{w}{A vector that contains the control group weights assigned by trimming entropy balancing algorithm.}
+\item{coefs}{A vector that contains coefficients from the reweighting algorithm.}
+\item{maxdiff}{A scalar that contains the maximum deviation between the moments of the reweighted data and the target moments.}
+\item{norm.constant}{Normalizing constant used.}
+\item{constraint.tolerance}{The tolerance level used for the balance constraints.}
+\item{max.iterations}{Maximum number of trimming iterations used.}
+\item{base.weight}{The base weight used.}
+\item{converged}{Logical flag if algorithm converged within tolerance.}
 }
 \description{
 Function to trim weights obtained from entropy balancing. It takes

@@ -49,15 +49,15 @@
 #' @param print.level Controls the level of printing: 0 (normal
 #' printing), 2 (detailed), and 3 (very detailed).
 #' @return An list object of class ebalance with the following elements:
-#' \item{target.margins}A vector that contains the target moments coded from the covariate distributions of the treatment group.
-#' \item{co.xdata}A matrix that contains the covariate data from the control group.
-#' \item{w}A vector that contains the control group weights assigned by entropy balancing.
-#' \item{coefs}A vector that contains coefficients from the reweighting algorithm.
-#' \item{maxdiff}A scalar that contains the maximum deviation between the moments of the reweighted data and the target moments.
-#' \item{constraint.tolerance}The tolerance level used for the balance constraints.
-#' \item{base.weight}The base weight used.
-#' \item{print.level}The print level used.
-#' \item{converged}Logical flag if algorithm converged within tolerance.
+#' \item{target.margins}{A vector that contains the target moments coded from the covariate distributions of the treatment group.}
+#' \item{co.xdata}{A matrix that contains the covariate data from the control group.}
+#' \item{w}{A vector that contains the control group weights assigned by entropy balancing.}
+#' \item{coefs}{A vector that contains coefficients from the reweighting algorithm.}
+#' \item{maxdiff}{A scalar that contains the maximum deviation between the moments of the reweighted data and the target moments.}
+#' \item{constraint.tolerance}{The tolerance level used for the balance constraints.}
+#' \item{base.weight}{The base weight used.}
+#' \item{print.level}{The print level used.}
+#' \item{converged}{Logical flag if algorithm converged within tolerance.}
 #' @examples
 #' treatment  =  c(rep(0,50),rep(1,30))
 #' X          =  rbind(replicate(3,rnorm(50,0)),replicate(3,rnorm(30,.5)))
